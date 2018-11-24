@@ -6,6 +6,7 @@ var notaD;
 var notaP;
 
 
+
 function criarNota(cor,texto){
 	var container = document.querySelector("#container");
 	notaD = document.createElement("div");
@@ -13,7 +14,7 @@ function criarNota(cor,texto){
 	notaP = document.createElement("p");
 
 	var btnApagar = criarBotao("fa-times");
-	btnApagar.addEventListener("click", apagarNota());
+	btnApagar.addEventListener("click", apagarBtn);
 	notaD.appendChild(btnApagar);
 	
 	var btnEditar = criarBotao("fa-pen");
@@ -46,6 +47,14 @@ function criarBotao(icone){
 	return btn;
 }
 
-function apagarNota(event){
-	alert(event.target.nodeName);
+function apagarBtn(event){
+	var nota = event.target;
+
+	if (nota.hasChildNodes()){
+		nota = event.target.parentNode;
+		console.log(nota);
+	} else{
+		nota = event.target.parentNode.parentNode;
+		console.log(nota);
+	}
 }
