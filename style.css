@@ -1,12 +1,17 @@
 .nota{
 	margin: 1em;
 	padding: 1em;
-	max-width: 100px;
-	min-height: 50px;
+	max-width: 200px;
+	min-height: 200px;
+	border-radius: 0 0 5px 5px;
 }
 
-.button{
-	display: block;
-	margin: 1em;
+.divBtn{
+	padding: 0.5em;
 	width: 1em;
+	float: right;
+	text-align: center;
+}
+.sumiu{
+	display: none;
 }
