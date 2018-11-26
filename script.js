@@ -6,21 +6,24 @@ var notaD;
 var notaP;
 
 
-
 function criarNota(cor,texto){
+
 	var container = document.querySelector("#container");
 	notaD = document.createElement("div");
 	notaD.classList.add("nota");
 	notaP = document.createElement("p");
+	notaP.classList.add("texto");
 
 	var btnApagar = criarBotao("fa-times");
 	btnApagar.addEventListener("click", apagarBtn);
 	notaD.appendChild(btnApagar);
 	
 	var btnEditar = criarBotao("fa-pen");
+	btnEditar.addEventListener("click", editarBtn);
 	notaD.appendChild(btnEditar);
 	
 	notaP.textContent = texto;
+	console.log(texto);
 	
 	notaD.appendChild(notaP);
 	container.appendChild(notaD);
@@ -34,6 +37,8 @@ btnSalvar.addEventListener("click", function(evento){
 	criarNota(form.cor.value,form.texto.value);
 
 	notaD.style.backgroundColor = form.cor.value;
+
+
 });
 
 function criarBotao(icone){
@@ -52,25 +57,27 @@ function apagarBtn(event){
 
 	if (nota.hasChildNodes()){
 		nota = event.target.parentNode;
+		console.log(nota);
 	} else{
 		nota = event.target.parentNode.parentNode;
+		console.log(nota);
 	}
 
-	nota.classList.add("fade");
+	/*nota.classList.add("fade");
 
 	setTimeout(function(){
 		nota.remove();
-	}, 500);
+	}, 500);*/
 }
 
-function editarBtn (event){
+function editarBtn(event){
 	var nota = event.target;
 
 	if (nota.hasChildNodes()){
 		nota = event.target.parentNode;
+		console.log(nota);
 	} else{
 		nota = event.target.parentNode.parentNode;
+		console.log(nota);
 	}
-
-	var ecor = nota.querySelector("#cor").textContent;
 }
