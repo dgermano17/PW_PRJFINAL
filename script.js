@@ -23,7 +23,6 @@ function criarNota(cor,texto){
 	notaD.appendChild(btnEditar);
 	
 	notaP.textContent = texto;
-	console.log(texto);
 	
 	notaD.appendChild(notaP);
 	container.appendChild(notaD);
@@ -63,11 +62,11 @@ function apagarBtn(event){
 		console.log(nota);
 	}
 
-	/*nota.classList.add("fade");
+	nota.classList.add("fade");
 
 	setTimeout(function(){
 		nota.remove();
-	}, 500);*/
+	}, 500);
 }
 
 function editarBtn(event){
@@ -80,4 +79,7 @@ function editarBtn(event){
 		nota = event.target.parentNode.parentNode;
 		console.log(nota);
 	}
+
+	var eTexto = nota.querySelector(".texto").textContent;
+	form.texto.value = eTexto;
 }
