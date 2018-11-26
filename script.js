@@ -52,9 +52,25 @@ function apagarBtn(event){
 
 	if (nota.hasChildNodes()){
 		nota = event.target.parentNode;
-		console.log(nota);
 	} else{
 		nota = event.target.parentNode.parentNode;
-		console.log(nota);
 	}
+
+	nota.classList.add("fade");
+
+	setTimeout(function(){
+		nota.remove();
+	}, 500);
+}
+
+function editarBtn (event){
+	var nota = event.target;
+
+	if (nota.hasChildNodes()){
+		nota = event.target.parentNode;
+	} else{
+		nota = event.target.parentNode.parentNode;
+	}
+
+	var ecor = nota.querySelector("#cor").textContent;
 }
