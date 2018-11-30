@@ -36,8 +36,9 @@ btnSalvar.addEventListener("click", function(evento){
 	criarNota(form.cor.value,form.texto.value);
 
 	notaD.style.backgroundColor = form.cor.value;
-
-
+	
+	form.texto.value = "";
+	form.cor.value = "";
 });
 
 function criarBotao(icone){
@@ -56,10 +57,8 @@ function apagarBtn(event){
 
 	if (nota.hasChildNodes()){
 		nota = event.target.parentNode;
-		console.log(nota);
 	} else{
 		nota = event.target.parentNode.parentNode;
-		console.log(nota);
 	}
 
 	nota.classList.add("fade");
@@ -74,12 +73,10 @@ function editarBtn(event){
 
 	if (nota.hasChildNodes()){
 		nota = event.target.parentNode;
-		console.log(nota);
 	} else{
 		nota = event.target.parentNode.parentNode;
-		console.log(nota);
 	}
-
-	var eTexto = nota.querySelector(".texto").textContent;
-	form.texto.value = eTexto;
+	//console.log(nota.querySelector(".texto").textContent);
+	
+	form.texto.value = nota.querySelector(".texto").textContent;
 }
