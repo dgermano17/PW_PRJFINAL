@@ -1,0 +1,61 @@
+.nota{
+	margin: 1em;
+	padding: 1em;
+	max-width: 200px;
+	min-height: 200px;
+	border-radius: 0 0 5px 5px;
+}
+
+.divBtn{
+	padding: 0.5em;
+	width: 1em;
+	float: right;
+	text-align: center;
+}
+.sumiu{
+	display: none;
+}
+
+.fade{
+	opacity: 0;
+	transition: 1s;
+}
+
+/*Escolha de Cor*/
+#corContainer{
+	display: table;
+	padding: 0.5em;
+	text-align: center;
+}
+#corBox1{
+	display: inline-block;
+	background-color: #ffe9c4;
+	padding: 0.6em;
+	margin: 0 0.25em;
+	border: 2px solid #e5c590;
+	border-radius: 50%;
+}
+#corBox2{
+	display: inline-block;
+	background-color: #ffffc4;
+	padding: 0.6em;
+	margin: 0 0.25em;
+	border: 2px solid #e6d780;
+	border-radius: 50%;
+}
+#corBox3{
+	display: inline-block;
+	background-color: #e6ffc6;
+	padding: 0.6em;
+	margin: 0 0.25em;
+	border: 2px solid #c8e2a5;
+	border-radius: 50%;
+}
+#corBox4{
+	display: inline-block;
+	background-color: #d3ffef;
+	padding: 0.6em;
+	margin: 0 0.25em;
+	border: 2px solid #9dccc2;
+	border-radius: 50%;
+}
