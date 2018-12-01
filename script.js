@@ -85,6 +85,7 @@ function editarBtn(event){
 		nota = event.target.parentNode.parentNode;
 	}
 	form.texto.value = nota.querySelector(".texto").textContent;
+	form.cor.value = nota.querySelector(".eCor").textContent;
 	btnSalvar.classList.add("none");
 	btnConfirmar.classList.remove("none");
 }
@@ -95,4 +96,10 @@ function editarBtn(event){
 
 		nota.querySelector(".texto").textContent = form.texto.value;
 		nota.querySelector(".eCor").textContent = form.cor.value;
+		
+		form.texto.value = "";
+		form.cor.value = "#ffffff"
+
+		btnConfirmar.classList.add("none");
+		btnSalvar.classList.remove("none");
 	});
