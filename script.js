@@ -1,9 +1,11 @@
 var form = document.querySelector("#form");
 
+var nota;
 var texto = document.querySelector("#texto").value;
 var cor = document.querySelector("#cor").value;
 var notaD;
 var notaP;
+var notaC;
 
 
 function criarNota(cor,texto){
@@ -23,6 +25,10 @@ function criarNota(cor,texto){
 	notaD.appendChild(btnEditar);
 	
 	notaP.textContent = texto;
+
+	notaC = document.createElement("p");
+	notaC.classList.add("eCor");
+	notaC.classList.add("none");
 	
 	notaD.appendChild(notaP);
 	container.appendChild(notaD);
@@ -36,9 +42,11 @@ btnSalvar.addEventListener("click", function(evento){
 	criarNota(form.cor.value,form.texto.value);
 
 	notaD.style.backgroundColor = form.cor.value;
+	notaC = form.cor.value;
+	console.log(notaC);
 	
 	form.texto.value = "";
-	form.cor.value = "";
+	form.cor.value = "#ffffff"
 });
 
 function criarBotao(icone){
@@ -53,7 +61,7 @@ function criarBotao(icone){
 }
 
 function apagarBtn(event){
-	var nota = event.target;
+	nota = event.target;
 
 	if (nota.hasChildNodes()){
 		nota = event.target.parentNode;
@@ -69,14 +77,22 @@ function apagarBtn(event){
 }
 
 function editarBtn(event){
-	var nota = event.target;
+	nota = event.target;
 
 	if (nota.hasChildNodes()){
 		nota = event.target.parentNode;
 	} else{
 		nota = event.target.parentNode.parentNode;
 	}
-	//console.log(nota.querySelector(".texto").textContent);
-	
 	form.texto.value = nota.querySelector(".texto").textContent;
+	btnSalvar.classList.add("none");
+	btnConfirmar.classList.remove("none");
 }
+
+	var btnConfirmar = document.querySelector("#btnEditar");
+	btnConfirmar.addEventListener("click", function(event){
+		event.preventDefault();
+
+		nota.querySelector(".texto").textContent = form.texto.value;
+		nota.querySelector(".eCor").textContent = form.cor.value;
+	});

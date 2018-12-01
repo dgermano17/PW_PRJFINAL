@@ -12,11 +12,15 @@
 	float: right;
 	text-align: center;
 }
-.sumiu{
+.none{
 	display: none;
 }
 
 .fade{
 	opacity: 0;
 	transition: 1s;
+}
+
+#btnConfirmar{
+
 }
