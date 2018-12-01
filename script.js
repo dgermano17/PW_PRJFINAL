@@ -7,6 +7,8 @@ var notaD;
 var notaP;
 var notaC;
 
+var contador;
+
 function criarNota(cor,texto){
 
 	var container = document.querySelector("#container");
@@ -43,8 +45,15 @@ btnSalvar.addEventListener("click", function(evento){
 
 	notaD.style.backgroundColor = form.cor.value;
 	notaC.textContent = form.cor.value;
+
+	contador = (localStorage.length/2) + 1;
+
+	localStorage.setItem("texto"+contador,form.texto.value);
+	localStorage.setItem("cor"+contador,form.cor.value);
+	
 	
 	form.texto.value = "";
+
 });
 
 function criarBotao(icone){
