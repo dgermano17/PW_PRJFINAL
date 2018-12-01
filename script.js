@@ -43,10 +43,8 @@ btnSalvar.addEventListener("click", function(evento){
 
 	notaD.style.backgroundColor = form.cor.value;
 	notaC.textContent = form.cor.value;
-	console.log(notaD);
 	
 	form.texto.value = "";
-	form.cor.value = "#ffffff"
 });
 
 function criarBotao(icone){
