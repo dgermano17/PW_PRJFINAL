@@ -7,7 +7,6 @@ var notaD;
 var notaP;
 var notaC;
 
-
 function criarNota(cor,texto){
 
 	var container = document.querySelector("#container");
@@ -31,6 +30,7 @@ function criarNota(cor,texto){
 	notaC.classList.add("none");
 	
 	notaD.appendChild(notaP);
+	notaD.appendChild(notaC);
 	container.appendChild(notaD);
 
 }
@@ -42,8 +42,8 @@ btnSalvar.addEventListener("click", function(evento){
 	criarNota(form.cor.value,form.texto.value);
 
 	notaD.style.backgroundColor = form.cor.value;
-	notaC = form.cor.value;
-	console.log(notaC);
+	notaC.textContent = form.cor.value;
+	console.log(notaD);
 	
 	form.texto.value = "";
 	form.cor.value = "#ffffff"
