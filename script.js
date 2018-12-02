@@ -53,7 +53,7 @@ btnSalvar.addEventListener("click", function(evento){
 
 	notaId.textContent = 1;
 
-	indocador = (localStorage.length/2) + 1;
+	indicador = (localStorage.length/2) + 1;
 	localStorage.setItem("texto"+indicador,form.texto.value);
 	localStorage.setItem("cor"+indicador,form.cor.value);
 	
@@ -88,8 +88,8 @@ function apagarBtn(event){
 		nota.remove();
 	}, 500);
 
-	localStorage.removeItem("texto" + nota.did.textContent);
-	localStorage.removeItem("cor" + nota.did.textContent);
+	console.log("texto" + nota.dId.textContent);
+	//localStorage.removeItem("cor" + nota.dId.innerHTML);
 
 }
 
@@ -101,8 +101,10 @@ function editarBtn(event){
 	} else{
 		nota = event.target.parentNode.parentNode;
 	}
+
 	form.texto.value = nota.querySelector(".texto").textContent;
 	form.cor.value = nota.querySelector(".eCor").textContent;
+	
 	btnSalvar.classList.add("none");
 	btnConfirmar.classList.remove("none");
 }
@@ -112,6 +114,7 @@ btnConfirmar.addEventListener("click", function(event){
 	event.preventDefault();
 	nota.querySelector(".texto").textContent = form.texto.value;
 	nota.querySelector(".eCor").textContent = form.cor.value;
+	nota.style.backgroundColor = form.cor.value;
 		
 	form.texto.value = "";
 	form.cor.value = "#ffffff"
