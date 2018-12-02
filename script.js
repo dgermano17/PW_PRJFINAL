@@ -6,8 +6,9 @@ var cor = document.querySelector("#cor").value;
 var notaD;
 var notaP;
 var notaC;
+var notaId;
 
-var contador;
+var indicador;
 
 function criarNota(cor,texto){
 
@@ -28,11 +29,15 @@ function criarNota(cor,texto){
 	notaP.textContent = texto;
 
 	notaC = document.createElement("p");
-	notaC.classList.add("eCor");
 	notaC.classList.add("none");
+	notaC.classList.add("eCor");
+	notaId = document.createElement("p");
+	notaId.classList.add("none");
+	notaId.classList.add("dId");
 	
 	notaD.appendChild(notaP);
 	notaD.appendChild(notaC);
+	notaD.appendChild(notaId);
 	container.appendChild(notaD);
 
 }
@@ -46,14 +51,15 @@ btnSalvar.addEventListener("click", function(evento){
 	notaD.style.backgroundColor = form.cor.value;
 	notaC.textContent = form.cor.value;
 
-	contador = (localStorage.length/2) + 1;
+	notaId.textContent = 1;
 
-	localStorage.setItem("texto"+contador,form.texto.value);
-	localStorage.setItem("cor"+contador,form.cor.value);
-	
+	indocador = (localStorage.length/2) + 1;
+	localStorage.setItem("texto"+indicador,form.texto.value);
+	localStorage.setItem("cor"+indicador,form.cor.value);
 	
 	form.texto.value = "";
 
+	console.log(notaD);
 });
 
 function criarBotao(icone){
@@ -81,6 +87,10 @@ function apagarBtn(event){
 	setTimeout(function(){
 		nota.remove();
 	}, 500);
+
+	localStorage.removeItem("texto" + nota.did.textContent);
+	localStorage.removeItem("cor" + nota.did.textContent);
+
 }
 
 function editarBtn(event){
@@ -97,16 +107,15 @@ function editarBtn(event){
 	btnConfirmar.classList.remove("none");
 }
 
-	var btnConfirmar = document.querySelector("#btnEditar");
-	btnConfirmar.addEventListener("click", function(event){
-		event.preventDefault();
-
-		nota.querySelector(".texto").textContent = form.texto.value;
-		nota.querySelector(".eCor").textContent = form.cor.value;
+var btnConfirmar = document.querySelector("#btnEditar");
+btnConfirmar.addEventListener("click", function(event){
+	event.preventDefault();
+	nota.querySelector(".texto").textContent = form.texto.value;
+	nota.querySelector(".eCor").textContent = form.cor.value;
 		
-		form.texto.value = "";
-		form.cor.value = "#ffffff"
+	form.texto.value = "";
+	form.cor.value = "#ffffff"
 
-		btnConfirmar.classList.add("none");
-		btnSalvar.classList.remove("none");
-	});
+	btnConfirmar.classList.add("none");
+	btnSalvar.classList.remove("none");
+});
