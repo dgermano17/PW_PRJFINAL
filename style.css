@@ -1,5 +1,6 @@
 body{
 	background-color: #ddd;
+	font-family: 'Raleway', sans-serif;
 }
 header{
 	background-color: #fff;
@@ -8,6 +9,10 @@ header{
 	max-width: 90%;
 	margin: 1em auto;
 }
+header h1{
+	font-weight: bolder;
+}
+
 #container{
 	background-color: #fff;
 	border: solid 1px #aaa;
