@@ -88,8 +88,9 @@ function apagarBtn(event){
 		nota.remove();
 	}, 500);
 
-	console.log("texto" + nota.dId.textContent);
-	//localStorage.removeItem("cor" + nota.dId.innerHTML);
+	console.log("texto" + nota.querySelector(".dId").textContent);
+	localStorage.removeItem("texto" + nota.querySelector(".dId").textContent);
+	localStorage.removeItem("cor" + nota.querySelector(".dId").textContent);
 
 }
 
