@@ -110,15 +110,19 @@ function editarBtn(event){
 	btnConfirmar.classList.remove("none");
 }
 
+
 var btnConfirmar = document.querySelector("#btnEditar");
 btnConfirmar.addEventListener("click", function(event){
 	event.preventDefault();
 	nota.querySelector(".texto").textContent = form.texto.value;
 	nota.querySelector(".eCor").textContent = form.cor.value;
 	nota.style.backgroundColor = form.cor.value;
+
+	localStorage.setItem("texto" + nota.querySelector(".dId").textContent, form.texto.value);
+	localStorage.setItem("cor" + nota.querySelector(".dId").textContent, form.cor.value);
 		
 	form.texto.value = "";
-	form.cor.value = "#ffffff"
+	form.cor.value = "#ffffff";
 
 	btnConfirmar.classList.add("none");
 	btnSalvar.classList.remove("none");
