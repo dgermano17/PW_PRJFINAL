@@ -39,7 +39,6 @@ function criarNota(cor,texto){
 	notaD.appendChild(notaC);
 	notaD.appendChild(notaId);
 	container.appendChild(notaD);
-
 }
 
 var btnSalvar = document.querySelector("#btnSalvar");
@@ -51,7 +50,11 @@ btnSalvar.addEventListener("click", function(evento){
 	notaD.style.backgroundColor = form.cor.value;
 	notaC.textContent = form.cor.value;
 
-	notaId.textContent = 1;
+	if (notaId.textContent != ""){
+		notaId.textContent = parseInt(notaId.textContent) + 1
+	}else{
+		notaId.textContent = 1
+	};
 
 	indicador = (localStorage.length/2) + 1;
 	localStorage.setItem("texto"+indicador,form.texto.value);
