@@ -7,8 +7,12 @@ var notaD;
 var notaP;
 var notaC;
 var notaId = 0;
+var notaIdp;
 
-function criarNota(cor,texto){
+function criarNota(cor,texto,id){
+
+	texto = document.querySelector("#texto").value;
+	cor = document.querySelector("#cor").value;
 
 	var container = document.querySelector("#container");
 	notaD = document.createElement("div");
@@ -33,25 +37,27 @@ function criarNota(cor,texto){
 	notaIdp.classList.add("none");
 	notaIdp.classList.add("dId");
 	
+	notaD.appendChild(notaIdp);
 	notaD.appendChild(notaP);
 	notaD.appendChild(notaC);
-	notaD.appendChild(notaIdp);
 	container.appendChild(notaD);
+	
+	notaId += 1;
+	notaIdp.textContent = notaId;
 }
 
 var btnSalvar = document.querySelector("#btnSalvar");
 btnSalvar.addEventListener("click", function(evento){
 	event.preventDefault();
-
-	criarNota(form.cor.value,form.texto.value);
+	
+	criarNota(form.cor.value,form.texto.value,notaId);
 
 	notaD.style.backgroundColor = form.cor.value;
 	notaC.textContent = form.cor.value;
-	
-	notaId += 1;
-	notaIdp.textContent = notaId;
+
 	localStorage.setItem("texto" + notaIdp.textContent, form.texto.value);
 	localStorage.setItem("cor" + notaIdp.textContent, form.cor.value);
+	localStorage.setItem("id" + notaIdp.textContent, notaIdp.textContent);
 	
 	form.texto.value = "";
 	form.cor.value = "#ffffff";
@@ -86,7 +92,8 @@ function apagarBtn(event){
 	}, 500);
 
 	localStorage.removeItem("texto" + nota.querySelector(".dId").textContent);
-	localStorage.removeItem("cor" + nota.querySelector(".dId"). textContent);
+	localStorage.removeItem("cor" + nota.querySelector(".dId").textContent);
+	localStorage.removeItem("id" + nota.querySelector(".dId").textContent);
 
 }
 
@@ -124,3 +131,14 @@ btnConfirmar.addEventListener("click", function(event){
 	btnConfirmar.classList.add("none");
 	btnSalvar.classList.remove("none");
 });
+
+var i;
+for (i=0;i < localStorage.length/3; i++){
+	criarNota(
+		localStorage.getItem("texto" + i.textContent),
+		localStorage.getItem("cor" + i.textContent),
+		localStorage.getItem("id" + i.textContent)
+		)
+
+	
+}
